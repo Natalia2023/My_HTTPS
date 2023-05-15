@@ -17,7 +17,7 @@ const handleSubmit = (e) => {
   .then((response) => response.json())
   .then((data) => {
     // console.log("data", data);
-    title.textContent = data?.totalResults;
+    title.textContent =`Total articles found ${data?.totalResults}`;
     insertContent(data.articles);
   })
   .catch((error) => {
