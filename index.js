@@ -9,6 +9,7 @@ const loadMoreBtn = document.querySelector(".load");
 const KEY = "5dc976f60a874ea58fbf6f14ab015fe7";
 const BASE_URL = "https://newsapi.org/v2";
 const URL = `${BASE_URL}/top-headlines?apiKey=${KEY}&category=sports&pageSize=10&country=ua`;
+let currentPage = 1;
 
 const updateUi = (data, pageSize) => {
   title.textContent =`Total articles found ${data?.totalResults}`;
@@ -21,19 +22,23 @@ const handleSubmit = (e) => {
     e.preventDefault();
     const category = select.value; 
     const pageSize = pageSizeInput.value;
-     const url = `${BASE_URL}/top-headlines?apiKey=${KEY}&category=${category}&pageSize=${pageSize}&country=ua`;
+     const url = `${BASE_URL}/top-headlines?apiKey=${KEY}&category=${category}&pageSize=${pageSize}&country=ua&page=${currentPage}`;
+     currentPage += 1;
      
      fetch(url)
   .then((response) => response.json())
   .then((data) => {
     // console.log("data", data);
-    updateUi(data, pageSize);
+   if (e.type === "submit") {
+ updateUi(data, pageSize);
+   }    
+   
     
     insertContent(data.articles);
   })
   .catch((error) => {
     console.log("error", error);
-});
+}).finally(() => {});
 };
 
 form.addEventListener("submit", handleSubmit);

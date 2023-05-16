@@ -1,0 +1,40 @@
+.hide {
+    display: none;
+}
+/* Стилі для форми */
+.form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Стилі для кнопок */
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:active {
+    background-color: #3e8e41;
+  }
+  
+  /* Стилі для відступів між кнопками */
+  .load {
+    margin-top: 10px;
+  }
+  
+  .search {
+    margin-right: 10px;
+  }
+  
